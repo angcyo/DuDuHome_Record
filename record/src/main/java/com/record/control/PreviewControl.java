@@ -54,7 +54,7 @@ public class PreviewControl implements Handler.Callback {
                 checkPreview();
             }
 
-//            // TODO: 2016-07-20  // TODO: 2016-07-25 angcyo angcyo
+//            // TODO: 2016-07-20  // TODO: 2016-07-25
 //            if (RUtil.failFlag()) {
 //                System.exit(1);
 //                android.os.Process.killProcess(android.os.Process.myPid());
