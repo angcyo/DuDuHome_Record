@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/button_back_selector" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/vehicle_short_frame">
+
+            <LinearLayout
+                android:id="@+id/fault_code_describe_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:orientation="horizontal">
+
+                    <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/fault_code"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="58dp"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/description"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4.5dp"
+                    android:src="@drawable/vehicle_short_line" />
+
+                <ListView
+                    android:id="@+id/unclear_fault_code_listView"
+                    android:layout_width="470dp"
+                    android:layout_height="180dp"
+                    android:layout_marginLeft="4.5dp"
+                    android:divider="@drawable/vehicle_short_line"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/check_fault_code_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/excalmatory_mark_icon" />
+
+                    <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/fault_code_unclear_prompt"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                    android:id="@+id/text_check_fault_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/click_check_fault_code_prompt"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nearby_grade_high_4S_shop"
+                android:textColor="@color/blue"
+                android:textSize="18sp" />
+
+            <View
+                android:layout_width="192dp"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/blue" />
+
+            <ListView
+                android:id="@+id/repair_shop_listView"
+                android:layout_width="wrap_content"
+                android:layout_height="192dp"
+                android:layout_marginTop="10dp"
+                android:divider="@null"
+                android:scrollbars="none"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/layout_reflash"
+                android:layout_width="match_parent"
+                android:layout_height="192dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/reflash_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/click_to_reflash"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/animation_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="60dp">
+
+            <LinearLayout
+                android:id="@+id/vehicle_anim_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/fault_code_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/animation_container"
+            android:layout_weight="1"
+            android:background="@drawable/vehicle_long_frame">
+
+            <LinearLayout
+                android:id="@+id/fault_code_describe_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:orientation="horizontal">
+
+                    <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="22dp"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/fault_code"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="@string/description"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="22dp"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/status_or_operator"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4.5dp"
+                    android:layout_marginRight="4.5dp"
+                    android:src="@drawable/vehicle_long_line" />
+
+                <ListView
+                    android:id="@+id/fault_code_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginLeft="4.5dp"
+                    android:layout_marginRight="4.5dp"
+                    android:divider="@drawable/vehicle_long_line"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/clearing_fault_code_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/clearing_fault_code_icon" />
+
+                <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                    android:id="@+id/clearing_fault_code_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/clearing_fault_code"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cleared_fault_code_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/cleared_fault_code_icon" />
+
+                <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/fault_code_cleared"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <com.dudu.android.launcher.ui.view.ListViewScrollbarView
+            android:id="@+id/fault_scroll_bar"
+            android:layout_width="10dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/fault_code_container"
+            android:src="@drawable/fault_code_scroll_bar" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/fault_scroll_bar"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_go_replace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_go_replace_selector" />
+
+            <Button
+                android:id="@+id/button_clear_fault_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_clear_fault_code_selector" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/vehicle_button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_back_selector"
+        android:tag="zhazha" />
+
+
+</RelativeLayout>

@@ -1,0 +1,258 @@
+package com.dudu.android.launcher.ui.activity.video;
+
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.dudu.android.launcher.R;
+import com.dudu.android.launcher.model.VideoEntity;
+import com.dudu.android.launcher.ui.dialog.ConfirmCancelDialog;
+import com.dudu.android.launcher.ui.dialog.ConfirmDialog;
+import com.dudu.android.launcher.utils.Constants;
+import com.dudu.android.launcher.utils.cache.ImageCache;
+import com.dudu.android.launcher.utils.cache.ThumbsFetcher;
+
+import java.util.ArrayList;
+
+public class VideoListActivity extends FragmentActivity {
+
+    private static final String IMAGE_CACHE_DIR = "thumbs";
+
+    private GridView mGridView;
+
+    private VideoAdapter mAdapter;
+
+    private ArrayList<VideoEntity> mVideoData;
+
+
+    private ThumbsFetcher mThumbsFetcher;
+
+    private View mEmptyView;
+
+    private int mPerPageItemNum = 6;
+
+    private int mCurrentPage = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        setContentView(R.layout.video_layout);
+
+        mGridView = (GridView) findViewById(R.id.video_grid);
+        mGridView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        mEmptyView = findViewById(R.id.empty_view);
+
+        initDatas();
+    }
+
+    public void initDatas() {
+        ImageCache.ImageCacheParams cacheParams =
+                new ImageCache.ImageCacheParams(this, IMAGE_CACHE_DIR);
+
+        cacheParams.setMemCacheSizePercent(0.25f);
+
+        cacheParams.diskCacheEnabled = false;
+
+        mThumbsFetcher = new ThumbsFetcher(VideoListActivity.this);
+
+        mThumbsFetcher.addImageCache(getSupportFragmentManager(), cacheParams);
+
+
+        mVideoData = new ArrayList<>();
+
+        mAdapter = new VideoAdapter(this, mVideoData);
+
+        mGridView.setAdapter(mAdapter);
+
+        mGridView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if (view.getLastVisiblePosition() == view.getCount() - 1 &&
+                        scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE) {
+
+                    mCurrentPage++;
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem,
+                                 int visibleItemCount, int totalItemCount) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mThumbsFetcher.closeCache();
+    }
+
+    public void onBackPressed(View v) {
+        finish();
+    }
+
+    private class VideoAdapter extends BaseAdapter {
+
+        private Context context;
+
+        private ArrayList<VideoEntity> data;
+
+        public VideoAdapter(Context context, ArrayList<VideoEntity> data) {
+            this.context = context;
+            this.data = data;
+        }
+
+        public void setData(ArrayList<VideoEntity> data) {
+            this.data = (ArrayList<VideoEntity>) data.clone();
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public int getCount() {
+            return data.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return data.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        private void showDeleteDialog(final VideoEntity video) {
+            ConfirmCancelDialog dialog = new ConfirmCancelDialog(context);
+            dialog.setOnButtonClicked(new ConfirmCancelDialog.OnDialogButttonClickListener() {
+                @Override
+                public void onConfirmClick() {
+                    data.remove(video);
+                    if (data.isEmpty()) {
+                        mEmptyView.setVisibility(View.VISIBLE);
+                        mGridView.setVisibility(View.GONE);
+                    }
+
+                    notifyDataSetChanged();
+                }
+
+                @Override
+                public void onCancelClick() {
+
+                }
+            });
+
+            dialog.show();
+        }
+
+        private void showLockDialog() {
+            ConfirmDialog dialog = new ConfirmDialog(context);
+            dialog.setOnConfirmClickListener(new ConfirmDialog.OnConfirmClickListener() {
+                @Override
+                public void onConfirmClick() {
+
+                }
+            });
+
+            dialog.show();
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            ViewHolder holder;
+            if (convertView == null) {
+                holder = new ViewHolder();
+                convertView = LayoutInflater.from(context).inflate(
+                        R.layout.video_taxi_item, parent, false);
+                holder.delete = (ImageButton) convertView
+                        .findViewById(R.id.delete_button);
+                holder.date = (TextView) convertView
+                        .findViewById(R.id.date_text);
+                holder.thumbnail = (ImageView) convertView
+                        .findViewById(R.id.thumbnail);
+                holder.play = (ImageButton) convertView
+                        .findViewById(R.id.video_play);
+                holder.checkBox = (CheckBox) convertView
+                        .findViewById(R.id.video_check_box);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            final VideoEntity video = data.get(position);
+            holder.date.setText((position + 1) + ":   " +
+                    getVideoDisplayName(video.getName()));
+            holder.delete.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    if (video.getStatus() == 0) {
+                        showDeleteDialog(video);
+                    } else {
+                        showLockDialog();
+                    }
+                }
+            });
+
+            holder.play.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(VideoListActivity.this,
+                            VideoPlayActivity.class);
+                    intent.setData(Uri.fromFile(video.getFile()));
+                    intent.putExtra(Constants.EXTRA_VIDEO_POSITION, position);
+                    startActivity(intent);
+                }
+            });
+
+            holder.checkBox.setOnCheckedChangeListener(null);
+            holder.checkBox.setChecked(video.getStatus() == 1);
+            holder.checkBox
+                    .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                        @Override
+                        public void onCheckedChanged(CompoundButton buttonView,
+                                                     boolean isChecked) {
+                        }
+                    });
+
+            mThumbsFetcher.loadImage(video.getFile().getAbsolutePath(),
+                    holder.thumbnail);
+            return convertView;
+        }
+
+        private String getVideoDisplayName(String videoName) {
+            return videoName.substring(0, videoName.lastIndexOf("."));
+        }
+
+        class ViewHolder {
+            ImageView thumbnail;
+            ImageButton delete;
+            ImageButton play;
+            TextView date;
+            CheckBox checkBox;
+        }
+
+    }
+
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/text_fault_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="11dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:paddingTop="11dp"
+            android:text="P2222"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/text_fault_code_describe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_horizontal"
+            android:maxWidth="400dp"
+            android:minWidth="30dp"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="制动打榜搓球待见搭建键"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+            android:id="@+id/text_fault_code_status"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingBottom="11dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
+            android:paddingTop="11dp"
+            android:text="待定"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</LinearLayout>

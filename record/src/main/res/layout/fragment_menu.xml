@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.record.view.CrossLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/v_menu_bg"
+            android:paddingBottom="10dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="10dp">
+
+            <!--设置按钮-->
+            <TextView
+                android:id="@+id/settingView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/v_setting_selector"
+                android:text="设置"
+                android:textColor="@android:color/white"/>
+
+            <!--图片按钮-->
+            <TextView
+                android:id="@+id/photoView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/v_photo_selector"
+                android:text="图片"
+                android:textColor="@android:color/white"/>
+
+            <!--视频按钮-->
+            <TextView
+                android:id="@+id/videoView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/v_video_selector"
+                android:text="视频"
+                android:textColor="@android:color/white"/>
+
+            <!--&lt;!&ndash;静音按钮&ndash;&gt;-->
+            <!--<TextView-->
+                <!--android:id="@+id/voiceView"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:drawableTop="@drawable/v_mute_selector"-->
+                <!--android:text="声音"-->
+                <!--android:textColor="@android:color/white"/> -->
+
+            <!--水印按钮-->
+            <TextView
+                android:id="@+id/watermarkView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/v_btn_selector"
+                android:gravity="center_horizontal"
+                android:text="水印"
+                android:textColor="@android:color/white"/>
+
+        </com.record.view.CrossLayout>
+
+        <!--退出按钮-->
+        <ImageView
+            android:id="@+id/quitView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/v_quit_selector"/>
+
+    </RelativeLayout>
+
+</FrameLayout>

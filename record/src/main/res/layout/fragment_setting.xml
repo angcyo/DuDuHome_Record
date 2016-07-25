@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/v_normal_bg_dark"
+             android:minHeight="400dp"
+             android:minWidth="400dp">
+
+    <!--关闭按钮-->
+    <ImageView
+        android:id="@+id/closeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/v_close_selector"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical">
+
+        <!--单文件录制时长-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/v_normal_bg_dark"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="单文件录制时长(分钟)"
+                android:textColor="@android:color/white"/>
+
+            <RadioGroup
+                android:id="@+id/rbGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:checkedButton="@+id/rb1"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/v_radio_button_bg"
+                    android:button="@null"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:text="1"/>
+
+                <RadioButton
+                    android:id="@+id/rb5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/v_radio_button_bg"
+                    android:button="@null"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:text="5"/>
+
+                <RadioButton
+                    android:id="@+id/rb10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/v_radio_button_bg"
+                    android:button="@null"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:text="10"/>
+
+                <RadioButton
+                    android:id="@+id/rb15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/v_radio_button_bg"
+                    android:button="@null"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="5dp"
+                    android:text="15"
+                    android:visibility="gone"/>
+            </RadioGroup>
+        </RelativeLayout>
+
+        <!--添加时间水印-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/v_normal_bg_dark"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="添加时间水印"
+                android:textColor="@android:color/white"/>
+
+            <ToggleButton
+                android:id="@+id/watermarkView"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/v_btn_selector"
+                android:button="@null"
+                android:textOff=""
+                android:textOn=""/>
+
+        </RelativeLayout>
+
+        <!--拍照声音-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/v_normal_bg_dark"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="启用拍照声效"
+                android:textColor="@android:color/white"/>
+
+            <ToggleButton
+                android:id="@+id/takePhotoView"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/v_btn_selector"
+                android:button="@null"
+                android:textOff=""
+                android:textOn=""/>
+
+        </RelativeLayout>
+
+        <!--是否自动转换成mp4文件-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/v_normal_bg_dark"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="是否自动转换成mp4文件"
+                android:textColor="@android:color/white"/>
+
+            <ToggleButton
+                android:id="@+id/convertView"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/v_btn_selector"
+                android:button="@null"
+                android:textOff=""
+                android:textOn=""/>
+
+        </RelativeLayout>
+
+        <!--转换mp4文件,删除H264文件-->
+        <RelativeLayout
+            android:id="@+id/deleteH264layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/v_normal_bg_dark"
+            android:paddingLeft="25dp"
+            android:paddingRight="5dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="删除原始H264文件"
+                android:textColor="@android:color/white"/>
+
+            <ToggleButton
+                android:id="@+id/deleteH264View"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/v_btn_selector"
+                android:button="@null"
+                android:textOff=""
+                android:textOn=""/>
+
+        </RelativeLayout>
+
+
+        <!--版本信息-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/v_normal_bg_dark"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="当前版本"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/versionView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@android:color/white"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

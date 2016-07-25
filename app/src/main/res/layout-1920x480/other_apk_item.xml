@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <com.dudu.android.launcher.ui.view.RoundImageView
+        android:id="@+id/appIcon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        zhy:borderRadius="10dp"
+        zhy:type="round" />
+
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/packageName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        />
+
+
+</LinearLayout>

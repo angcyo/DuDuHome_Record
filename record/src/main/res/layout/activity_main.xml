@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.record.MainActivity">
+
+    <!--预览画面-->
+    <SurfaceView
+        android:id="@+id/preView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--波纹-->
+    <FrameLayout
+        android:id="@+id/rippleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.record.view.RippleBackground
+            android:id="@+id/rippleBackgroundLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/tv_start_tip"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+
+    </FrameLayout>
+    <!--时间和地址位置-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#90000000"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/activity_top_padding"
+        android:visibility="gone"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/timeView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="23:00:00"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/addressView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:text="中国广东省深圳市南山区西丽街道留仙大道"
+            android:textColor="@android:color/white"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+    <!--拍照按钮-->
+    <ImageButton
+        android:id="@+id/takePhotoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@null"
+        android:src="@drawable/v_take_photo_selector"/>
+
+    <!--录制按钮-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:background="@mipmap/v_record_bg">
+
+        <ImageButton
+            android:id="@+id/recorderView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:src="@mipmap/v_start_record"/>
+
+        <ImageView
+            android:id="@+id/recorderAnimView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/v_record_anim2"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_vertical_margin">
+
+        <!--菜单按键-->
+        <ToggleButton
+            android:id="@+id/menuView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:button="@drawable/v_recorder_selector"
+            android:textOff=""
+            android:textOn=""/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tipView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textColor="@android:color/white"
+        android:visibility="gone"/>
+
+    <!--Debug按钮-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onUsb"
+            android:text="切换Usb"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onInitCamera"
+            android:text="初始化Camera"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onStartPreview"
+            android:text="开始预览"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onPrintVideo"
+            android:text="打印设备"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onBack"
+            android:text="退出"/>
+    </LinearLayout>
+
+    <!--fix bug-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_horizontal_margin"
+        android:layout_alignParentTop="true"
+        android:background="@android:color/transparent"/>
+</RelativeLayout>

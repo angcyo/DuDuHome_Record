@@ -1,0 +1,24 @@
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false" >
+    <item android:drawable="@drawable/d02_voice_00" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_01" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_02" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_03" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_04" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_05" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_06" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_07" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_08" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_09" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_10" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_11" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_12" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_13" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_14" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_15" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_16" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_17" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_18" android:duration="150"></item>
+    <item android:drawable="@drawable/d02_voice_19" android:duration="150"></item>
+</animation-list>

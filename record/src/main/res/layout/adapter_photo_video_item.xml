@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:paddingBottom="10dp"
+             android:paddingLeft="10dp"
+             android:paddingRight="10dp"
+             android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <!--左边-->
+            <LinearLayout
+                android:id="@+id/leftLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/deleteView"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/v_normal_bg"
+                    android:padding="4dp"
+                    android:src="@drawable/v_delete_selector"/>
+
+                <ToggleButton
+                    android:id="@+id/lockView"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/v_normal_bg"
+                    android:padding="4dp"
+                    android:button="@drawable/v_lock_selector"/>
+            </LinearLayout>
+
+            <!--右边-->
+            <RelativeLayout
+                android:id="@+id/rightLayout"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/leftLayout"
+                android:background="@drawable/v_normal_bg">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"/>
+
+                <ImageView
+                    android:id="@+id/playView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/v_play_selector"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/nameView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="right|center_vertical"
+            android:text="20160606-22334400"
+            android:textColor="@android:color/white"
+            android:textSize="9sp"/>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">行车记录状态读写程序</string>
+    <string name="title_activity_main">MainActivity</string>
+</resources>

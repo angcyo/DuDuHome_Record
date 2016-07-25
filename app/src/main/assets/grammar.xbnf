@@ -1,0 +1,200 @@
+$DIGIT = (1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0);
+
+$NUM = ( $DIGIT/min=1,max=11,k="number"/);
+
+$PERSON = #CONTACT#;
+$PERSONX = ($PERSON)/k="person"/;
+$BT_ACTION_PREFIX_01 = ([请]给 | 跟);
+$BT_ACTION_SUFFIX_01 = (致电 | 通话 | 拨号 | 通电 | 电话 | [拨]打电话)/action="打电话"/;
+$BT_ACTION_PREFIX_02 = (打给 | 打电话给 | 电话给 | 呼叫 | 联系 | 致电 | 拨通 | 拨打)/action="打电话"/;
+$BT_ACTION_PREFIX_03 = ( 拨打 | 拨通)/action="打电话"/;
+$NUMBER_112 = (幺幺二)/k="number",v="112"/;
+$NUMBER_114 = (幺幺四)/k="number",v="114"/;
+$NUMBER_110 = (幺幺零)/k="number",v="110"/;
+$NUMBER_120 = (幺二零)/k="number",v="120"/;
+$CALL_SP_NUMBER = (($BT_ACTION_PREFIX_03 $NUMBER_112) | ($BT_ACTION_PREFIX_03 $NUMBER_114) | ($BT_ACTION_PREFIX_03 $NUMBER_110) | ($BT_ACTION_PREFIX_03 $NUMBER_120)
+($BT_ACTION_PREFIX_02 $NUMBER_112) | ($BT_ACTION_PREFIX_02 $NUMBER_114) | ($BT_ACTION_PREFIX_02 $NUMBER_110) | ($BT_ACTION_PREFIX_02 $NUMBER_120));
+$BT_ACTION_SUFFIX_03 = (的电话);
+$BT_CALL_LT = ([中国]联通)/k="number",v="10010"/;
+$BT_CALL_YD = ([中国]移动)/k="number",v="10086"/;
+$BT_CALL_DX = ([中国]电信)/k="number",v="10000"/;
+$CALL_OPERATOR = (($BT_ACTION_PREFIX_02 $BT_CALL_LT) | ($BT_ACTION_PREFIX_03 $BT_CALL_LT)
+ | ($BT_ACTION_PREFIX_02 $BT_CALL_YD) | ($BT_ACTION_PREFIX_03 $BT_CALL_YD) ($BT_ACTION_PREFIX_02 $BT_CALL_DX) | ($BT_ACTION_PREFIX_03 $BT_CALL_DX));
+$BT_CMD = (($BT_ACTION_PREFIX_01 ($PERSONX | $NUM) $BT_ACTION_SUFFIX_01)
+				| ($BT_ACTION_PREFIX_02 ($PERSONX | $NUM))
+				| ($BT_ACTION_PREFIX_03 ($PERSONX | $NUM) $BT_ACTION_SUFFIX_03) | ($CALL_OPERATOR) | ($BT_ACTION_PREFIX_03 $NUM) | ($CALL_SP_NUMBER))/domain="phone"/;
+
+$VOLUME_UP = (增大 | 调大 | 调高 | 升高 | 增加 | 大点 | 再大[一]点 | 太小[了]);
+$VOLUME_MAX = 调[到]最大;
+$VOLUME_DOWN = (减小 | 调小 | 调低 | 降低 | 小点 | 再小[一]点 | 太大[了]);
+$VOLUME_MIN = 调[到]最小;
+$LOW_VOLUME = (小声点[儿])/action="-"/;
+$HIGH_VOLUME = (大声点[儿])/action="+"/;
+$VOLUME_NAME = (音量 | 声音 | 音响);
+$VOLUME_MUTE_NAME = (静音);
+$VOLUME_MUTE_ON = (打开);
+$VOLUME_MUTE_OFF = (关闭);
+$VOLUME_UP_CMD = (($VOLUME_UP $VOLUME_NAME) | ($VOLUME_NAME $VOLUME_UP))/action="+"/;
+$VOLUME_DOWN_CMD = (($VOLUME_DOWN $VOLUME_NAME) | ($VOLUME_NAME $VOLUME_DOWN))/action="-"/;
+$VOLUME_MAX_CMD = (($VOLUME_MAX $VOLUME_NAME) | ($VOLUME_NAME $VOLUME_MAX))/action="max"/;
+$VOLUME_MIN_CMD = (($VOLUME_MIN $VOLUME_NAME) | ($VOLUME_NAME $VOLUME_MIN))/action="min"/;
+$VOLUME_MUTE_ON_CMD = (($VOLUME_MUTE_NAME)
+					| ($VOLUME_MUTE_OFF $VOLUME_NAME))/action="mute_on"/;
+$VOLUME_MUTE_OFF_CMD = ($VOLUME_MUTE_ON $VOLUME_NAME)/action="mute_off"/;
+$VOLUME_CMD = (($VOLUME_UP_CMD) | ($VOLUME_DOWN_CMD) |($VOLUME_MAX_CMD) | ($VOLUME_MIN_CMD)| ($VOLUME_MUTE_ON_CMD) | ($VOLUME_MUTE_OFF_CMD) | ($LOW_VOLUME) | ($HIGH_VOLUME))/domain="volume"/;
+
+$SELF_CHECKING = ([车辆]自检 | [车辆]自井 | 车辆自己 | 行车自检)/k="target", v="自检"/;
+$SELF_CHECKING_OPEN = (打开 | 开启 | 启动)/k="action",v="打开"/;
+$SELF_CHECKING_CLOSE = (关闭 | 关掉 | 结束 | 退出)/k="action"/;
+$SELF_CHECKING_OPEN_CMD = ($SELF_CHECKING_OPEN $SELF_CHECKING);
+$SELF_CHECKING_CLOSE_CMD = ($SELF_CHECKING_CLOSE $SELF_CHECKING);
+$SELF_CHECKING_CMD = (($SELF_CHECKING_OPEN_CMD) | ($SELF_CHECKING_CLOSE_CMD))/domain="cmd"/;
+
+$VIDEO_NAME = (录像 | 行车记录 | 摄像头 | 视频)/k="target", v="录像"/;
+$VIDEO_OPEN = (打开 | 开启 | 启动 | 播放)/k="action"/;
+$VIDEO_CLOSE = (关闭 | 关掉 | 退出)/k="action"/;
+$VIDEO_OPEN_CMD = ($VIDEO_OPEN $VIDEO_NAME);
+$VIDEO_CLOSE_CMD = ($VIDEO_CLOSE $VIDEO_NAME);
+$VIDEO_CMD = (($VIDEO_OPEN_CMD) | ($VIDEO_CLOSE_CMD))/domain="cmd"/;
+
+$SPEECH_NAME = (语音)/k="target", v="语音"/;
+$SPEECH_CLOSE = (关闭 | 关掉 | 退出 | 退粗);
+$EXIT_CMD = (退出 | 退下[吧] | 滚 | 退粗 | 再见 | 拜拜)/k="target",v="退出"/;
+$SPEECH_CLOSE_CMD = ($SPEECH_CLOSE $SPEECH_NAME);
+$SPEECH_CMD = (($SPEECH_CLOSE_CMD) | ($EXIT_CMD))/domain="cmd"/;
+
+$FAULT_CLEAR = (清除故障 | 清除 | 是 | 清楚故障码 | 亲除)/k="action",v="清除"/;
+$FAULT_NOT_CLEAR = (不清除 | 否 | 不清楚 | 不)/k="action",v="不清除"/;
+$FAULT_CMD = (($FAULT_CLEAR) | ($FAULT_NOT_CLEAR))/domain="fault_cmd"/;
+
+$NAVI_NAME = (导航 | 地图)/k="target", v="导航"/;
+$NAVI_OPEN = (打开 | 开启 | 启动)/k="action",v="打开"/;
+$NAVI_CLOSE = (关闭 | 关掉 | 退出)/k="action",v="退出"/;
+$NAVI_OPEN_CMD = ($NAVI_OPEN $NAVI_NAME);
+$NAVI_CLOSE_CMD = ($NAVI_CLOSE $NAVI_NAME);
+$NAVI_CMD = (($NAVI_OPEN_CMD) | ($NAVI_CLOSE_CMD))/domain="cmd"/;
+
+$BACK_MAIN = (主页 | 主菜单 | 桌面 | 主界面)/k="target", v="返回"/;
+$CMD_BACK_ACTION = (返回 | 回到 | 回)/k="action"/;
+$BACK_MAIN_CMD = ($CMD_BACK_ACTION $BACK_MAIN);
+$BACK = (返回)/k="target", v="返回"/;
+$BACK_CMD = (($CMD_BACK_ACTION $BACK_MAIN) | ($BACK))/domain="cmd"/;
+
+$ROBBERY_NAME = (防劫系统 | 防劫 | 防劫持 | 防劫模式)/k="target", v="防劫系统"/;
+$ROBBERY_OPEN = (打开 | 开启 | 启动)/k="action",v="打开"/;
+$ROBBERY_CLOSE = (关闭 | 关掉 | 退出)/k="action"/;
+$ROBBERY_OPEN_CMD = ($ROBBERY_OPEN $ROBBERY_NAME);
+$ROBBERY_CLOSE_CMD = ($ROBBERY_CLOSE $ROBBERY_NAME);
+$ROBBERY_CMD = (($ROBBERY_OPEN_CMD) | ($ROBBERY_CLOSE_CMD))/domain="cmd"/;
+
+$GUARD_NAME = (防盗系统 | 防盗 | 防盗模式)/k="target", v="防盗系统"/;
+$GUARD_OPEN = (打开 | 开启 | 启动)/k="action",v="打开"/;
+$GUARD_CLOSE = (关闭 | 关掉 | 退出)/k="action"/;
+$GUARD_OPEN_CMD = ($GUARD_OPEN $GUARD_NAME);
+$GUARD_CLOSE_CMD = ($GUARD_CLOSE $GUARD_NAME);
+$GUARD_CMD = (($GUARD_OPEN_CMD) | ($GUARD_CLOSE_CMD))/domain="cmd"/;
+
+
+$NEXT_PAGE = (下一页 | 下夜 | 下 | 翻页)/k="action", v="下一页"/;
+$PREVIOUS_PAGE = (上一页 | 上夜 | 上)/k="action", v="上一页"/;
+$CHOOSE_PAGE = (($NEXT_PAGE) | ($PREVIOUS_PAGE))/domain="choose_page"/;
+
+$CHOOSE_SIZE = (一 | 二 | 三 | 四 | 五 | 六 | 七 | 八 | 九 | 两 | 十);
+$CHANGE_ACTION_MIDDLE = (百 | 百零 | 十);
+$NUMX_HUNDRED_01 = ($CHOOSE_SIZE $CHANGE_ACTION_MIDDLE)/k="choose_number"/;
+$NUMX_HUNDRED_02 = ($CHOOSE_SIZE $CHANGE_ACTION_MIDDLE $CHOOSE_SIZE $CHANGE_ACTION_MIDDLE)/k="choose_number"/;
+$NUMX_HUNDRED_03 = ($CHOOSE_SIZE $CHANGE_ACTION_MIDDLE $CHOOSE_SIZE $CHANGE_ACTION_MIDDLE $CHOOSE_SIZE)/k="choose_number"/;
+$NUMX_HUNDRED_04 = ($CHOOSE_SIZE $CHANGE_ACTION_MIDDLE $CHOOSE_SIZE)/k="choose_number"/;
+
+$NUMX_INHUNDRED_01 = ($CHOOSE_SIZE $CHANGE_ACTION_MIDDLE)/k="choose_number"/;
+$NUMX_INHUNDRED_02 = ($CHOOSE_SIZE $CHANGE_ACTION_MIDDLE $DIGIT)/k="choose_number"/;
+$NUMX_INHUNDRED_03 = ($CHANGE_ACTION_MIDDLE $CHOOSE_SIZE)/k="choose_number"/;
+
+
+$CHOOSE = (第);
+$NUMBER_CN = (号码);
+$NUMX_INTEN = ($CHOOSE_SIZE)/k="choose_number"/;
+$CHOOSE_TYPE = (条 | 个 | 页 | 项)/k="type"/;
+$CONTACTS_CHOOSE_NUMBER_02 = ($NUMBER_CN $NUMX_INTEN);
+$LAST_PAGE = (最后一页 | 最后夜)/k="type",v="last_page"/;
+$LAST_ONE = (最后一个 | 最后个)/k="type",v="last_one"/;
+$CHANNEL_CMD = ($CHOOSE ( $NUMX_HUNDRED_01 | $NUMX_HUNDRED_02 | $NUMX_HUNDRED_03 | $NUMX_HUNDRED_04 | $NUMX_INHUNDRED_01 | $NUMX_INHUNDRED_02 | $NUMX_INHUNDRED_03 | $NUMX_INTEN) $CHOOSE_TYPE);
+$CHOOE_NUMBER_CMD = (($CHOOSE $NUMX_INTEN $CHOOSE_TYPE) | ($CONTACTS_CHOOSE_NUMBER_02) | ($LAST_PAGE) | ($LAST_ONE) | ($CHANNEL_CMD))/domain="choose_cmd"/;
+
+$CHOOSE_STRATEGY_ONE = (速度最快 | 速度优先 | 最快[的])/k="choose_number", v="一"/;
+$CHOOSE_STRATEGY_TWO = (避免收费 | 费用优先 | 不收费[的] | 免费的)/k="choose_number", v="二"/;
+$CHOOSE_STRATEGY_THREE = (距离最短 | 距离优先 | )/k="choose_number", v="三"/;
+$CHOOSE_STRATEGY_FOUR = (不走高速快速路 | 不走高速)/k="choose_number", v="四"/;
+$CHOOSE_STRATEGY_FIVE = (时间最短且躲避拥堵 | 时间最短)/k="choose_number", v="五"/;
+$CHOOSE_STRATEGY_SIX = (避免收费且躲避拥堵 | 躲避拥堵 | 不收费不拥堵)/k="choose_number", v="六"/;
+$CHOOSE_STRATEGY_CMD = (($CHOOSE_STRATEGY_ONE) | ($CHOOSE_STRATEGY_TWO) | ($CHOOSE_STRATEGY_THREE) | ($CHOOSE_STRATEGY_FOUR) | ($CHOOSE_STRATEGY_FIVE) | ($CHOOSE_STRATEGY_SIX))/domain="choose_strategy"/;
+
+$WIFI_NAME = (WIFI | 热点 | WIFI热点 | WIFI流量)/k="target", v="WIFI"/;
+$OPEN_WIFI = (打开 | 开启 |启动)/k="action",v="打开"/;
+$CLOSE_WIFI = (关闭 | 关掉)/k="action",v="关闭"/;
+$WIFI_CMD = (($OPEN_WIFI $WIFI_NAME) | ($CLOSE_WIFI $WIFI_NAME) | ($WIFI_NAME $OPEN_WIFI) | ($WIFI_NAME $CLOSE_WIFI))/domain="cmd"/;
+
+$GUARD_UNLOCK = (防盗解锁)/k="target", v="防盗解锁"/;
+$GUARD_UNLOCK2 = (我要解锁)/k="target", v="防盗解锁"/;
+$GUARD_UNLOCK_CMD =(($GUARD_UNLOCK) | ($GUARD_UNLOCK2))/domain="cmd"/;
+
+$WIFI_PAY = (流量充值 | 我想充值 | WIFI充值 | 我要充值 |　充值)/k="target", v="流量充值"/;
+$CHANGE_WIFI_PWD = (WIFI密码设置 | 修改WIFI密码 | 设置WIFI密码)/k="target",v="流量充值"/;
+$WIFI_PAY_CMD = (($WIFI_PAY) | ($CHANGE_WIFI_PWD))/domain="cmd"/;
+
+$RESTAURANT = (我饿了 | 我要吃饭 | 我想吃饭 | 哪里有吃的 | 帮我找吃的 | 我想吃东西)/k="poiName",v="餐饮"/;
+
+$HOTEL = (我困了 | 我累了 | 哪里有酒店 | 我想睡觉 | 附近的酒店 | 我要住宿 | 我要开房)/k="poiName",v="酒店"/;
+$HOSTEL = (附近的旅馆 | 附近的旅店)/k="poiName",v="旅馆"/;
+$DUDU_PLACE = (我要去嘟嘟智能科技 | 我要去嘟嘟智能 )/k="poiName",v="嘟嘟智能科技"/;
+$GAS_STATION = (附近的加油站 | 哪里有加油站 | 加油站在哪[儿] | 我要去加油站 | 车没油了)/k="poiName",v="加油站"/;
+$CUR_LOCATION = (我现在在哪[儿] | 我的位置 | 我现在的位置 | 我[现在]在哪里)/k="poiName",v="CURRENT_POI"/;
+$MAP_SEARCH = (($RESTAURANT) | ($HOTEL) | ($HOSTEL) | ($DUDU_PLACE) | ($GAS_STATION) | ($CUR_LOCATION))/domain="map"/;
+
+$FOOD_TYPE = (川菜 | 粤菜 | 韩国菜 | 韩国料理 | 日本菜 | 日本料理 | 越南菜 | 湘菜 | 泰国菜 | 台湾菜 | 海鲜 | 西餐 | 江浙菜 | 东北菜 | 烤肉 | 烤鱼 | 香锅 | 烧烤 | 新疆菜 | 素食 | 粥 | 麦当劳 | 肯德基 | 必胜客 | KFC)/k="poiName"/;
+$I_WANT = (我要吃 | 我想吃 | 附近[的] | 哪里有);
+$FOOD_SEARCH =($I_WANT $FOOD_TYPE)/domain="food_search"/;
+
+$MOVIE = (我要看电影 | 附近的电影院 | 附近的影剧院 | 哪里有电影院 | 我想看电影)/k="poiName",v="电影院"/;
+$MOVIE_SEARCH = ($MOVIE)/domain="map"/;
+
+$DRUGSTORE = (我要吃药 | 我要买药 | 附近的药店 | 哪里可以买药 | 哪里有药店)/k="poiName",v="药店"/;
+$SEARCH_DRUGSTORE = ($DRUGSTORE)/domain="map"/;
+
+$BANK = (我要取钱 | 哪里有银行 | 附近的银行 | 我想取钱 | 银行在哪)/k="poiName",v="银行"/;
+$BANK_SEARCH = ($BANK)/domain="map"/;
+
+$BRIGHTNESS_UP1 = (增大 | 调大 | 调高 | 升高 | 增加 | 调亮| 大 | 亮 | 太暗了 | 再亮一点)[点];
+$BRIGHTNESS_DOWN1 = (减小 | 调小 | 调低 | 降低 | 调暗 | 小 | 暗 | 太亮了 | 再暗一点)[点];
+$BRIGHTNESS_NAME1 = (亮度);
+$BRIGHTNESS_UP2 = ( 调亮 | 大 | 亮)[点];
+$BRIGHTNESS_DOWN2 = (调低 | 降低 | 调暗 | 小 | 暗)[点];
+$BRIGHTNESS_NAME2 = (屏幕[亮度]);
+$BRIGHTNESS_UP_CMD = (($BRIGHTNESS_UP1 $BRIGHTNESS_NAME1) | ($BRIGHTNESS_NAME1 $BRIGHTNESS_UP1)| ($BRIGHTNESS_UP2  $BRIGHTNESS_NAME2) | ($BRIGHTNESS_NAME2 $BRIGHTNESS_UP2))/action="up"/;
+$BRIGHTNESS_DONW_CMD = (($BRIGHTNESS_DOWN1 $BRIGHTNESS_NAME1) | ($BRIGHTNESS_NAME1 $BRIGHTNESS_DOWN1) | ($BRIGHTNESS_DOWN2 $BRIGHTNESS_NAME2) | ($BRIGHTNESS_NAME2 $BRIGHTNESS_DOWN2))/action="down"/;
+$BRIGHTNESS_CMD = (($BRIGHTNESS_UP_CMD) | ($BRIGHTNESS_DONW_CMD))/domain="brightness"/;
+
+$BT_CONTACT = (通讯录 | 电话本)/k="target", v="通讯录"/;
+$OPEN_CONTACT = (打开 | 开启 | 启动 | 开)/k="action",v="打开"/;
+$OPEN_CONTACT_CMD = ($OPEN_CONTACT $BT_CONTACT)/domain="cmd"/;
+
+$VIP_SERVICE = (VIP服务 | VIP电话)/k="target", v="VIP服务"/;
+$OPEN_VIP = (打开 | 拨打 | 开启)/k="action",v="打开"/;
+$VIP_SERVICE_CMD = ($OPEN_VIP $VIP_SERVICE)/domain="cmd"/;
+
+$PLAY = (播放);
+$VIDEO = (视频 | 录像);
+$PLAY_VIDEO = ($PLAY $CHANNEL_CMD $VIDEO)/domain="play_video"/;
+
+$BT_CALL = ([蓝牙]电话)/k="target", v="蓝牙电话"/;
+$OPEN_BT_CALL = (打开 | 开启)/k="action",v="打开"/;
+$OPEN_BT_CALL_CMD = ($OPEN_BT_CALL $BT_CALL)/domain="cmd"/;
+
+$COMMON_ADR_NAVI = (是 | 好[的] | 开始[导航])/k="action",v="是"/;
+$COMMON_ADR_NAVI_CANCEL = (否 | 取消 | 不[导航] | 不开始 | 不用了)/k="action",v="否"/;
+$COMMON_NAVI_CMD = (($COMMON_ADR_NAVI) | ($COMMON_ADR_NAVI_CANCEL))/domain="common_navi_cmd"/;
+
+$MESSAGE = ($BT_CMD) | ($VOLUME_CMD) | ($SELF_CHECKING_CMD) | ($VIDEO_CMD) | ($SPEECH_CMD) | ($FAULT_CMD) | ($NAVI_CMD) | ($BACK_CMD) | ($ROBBERY_CMD) | ($GUARD_CMD) | ($CHOOSE_PAGE) | ($CHOOE_NUMBER_CMD) | ($CHOOSE_STRATEGY_CMD) | ($WIFI_CMD) | ($GUARD_UNLOCK_CMD) | ($MAP_SEARCH) | ($FOOD_SEARCH) | ($BRIGHTNESS_CMD) | ($OPEN_CONTACT_CMD) | ($MOVIE_SEARCH) | ($VIP_SERVICE_CMD) | ($PLAY_VIDEO) |
+ ($OPEN_BT_CALL_CMD) | ($COMMON_NAVI_CMD) | ($SEARCH_DRUGSTORE) | ($BANK_SEARCH);
+
+( \<s\> ($MESSAGE) \<\/s\> )

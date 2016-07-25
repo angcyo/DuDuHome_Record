@@ -1,0 +1,112 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        >
+
+        <LinearLayout
+            android:id="@+id/voice_anim_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:gravity="center">
+                <ImageView
+                    android:id="@+id/voice_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/voice_circle" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/voice_mic"
+                    />
+
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/voice_ripple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:background="@android:color/transparent" />
+
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="36dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/whatcan" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/voice_anim_blur_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/dp_40"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/voice_circle_blur"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                 />
+
+            <ImageView
+                android:id="@+id/voice_ripple_blur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                 />
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/message_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ListView
+            android:id="@+id/message_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="@dimen/dp_50"
+            android:divider="@null"
+            android:footerDividersEnabled="false"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/voiceBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/button_back_selector" />
+
+</FrameLayout>

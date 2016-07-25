@@ -1,0 +1,34 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:semantic="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/window_radio_bg" >
+
+    <com.dudu.android.launcher.ui.view.RadioDialog
+        android:id="@+id/radioDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        semantic:circleDrawable="@drawable/semantic"
+        android:layout_marginLeft="-10dp"/>
+
+    <ListView
+        android:id="@+id/map_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/map_ListView_marginLeft"
+        android:divider="@android:color/white"
+        android:dividerHeight="1dp"
+        android:focusable="true"
+        android:visibility="gone" />
+
+    <ListView
+        android:id="@+id/message_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/message_listView_marginLeft"
+        android:background="@color/color_161616"
+        android:divider="@null"
+        android:footerDividersEnabled="false"
+        android:scrollbars="none" />
+
+</FrameLayout>

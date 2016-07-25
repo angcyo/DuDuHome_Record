@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="返回"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/openGps"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="GPS"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="startFactory"
+                android:text="工厂测试(生产)"
+                android:textColor="@color/white"/>
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onReboot"
+                android:text="重启"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="enterSetting"
+                android:text="设置"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/openRMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="RMap"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onFireOn"
+                android:text="模拟点火"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onFireOff"
+                android:text="模拟熄火"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="closeFireMoni"
+                android:text="关闭模拟"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/openOtherApk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="第三方的APK"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onCrash"
+                android:text="模拟Crash"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/openAdb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="打开ADB"
+                android:textColor="@color/white"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onSetD02"
+                android:text="设置为D02"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onSetD03"
+                android:text="设置为D03"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onQueryActive"
+                android:text="激活查询"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onQueryCarType"
+                android:text="后台设置车型查询"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onQueryLightValue"
+                android:text="光感值查询"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onQueryBLValue"
+                android:text="背光值查询"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onQueryACCVol"
+                android:text="ACC电压查询"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="switchUSBCamera"
+                android:text="切换至USB后摄"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="switchADB"
+                android:text="切换至USB调试"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/closeVideo"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onStopFrontVideo"
+                android:text="关闭前置录像"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/startVideo"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onStartFrontVideo"
+                android:text="开启前置录像"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="startUSBCameraRecord"
+                android:text="开启后置录像"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="stopUSBCameraRecord"
+                android:text="关闭后置录像"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="cleanRealm"
+                android:padding="5dp"
+                android:text="清理Realm数据库"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="testActivity"
+                android:padding="5dp"
+                android:text="Activity测试"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/initFontCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onInitFontCamera"
+                android:text="初始化前置录像"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/releaseFontCamera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onReleaseFontCamera"
+                android:text="释放前置录像"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonLogcat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="setLogcatEnable"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Logcat"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/buttonMic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="setMicMulti"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Mic"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/buttonLibStream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="setLibStream"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Stream"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/buttonStartRecorder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="setStartRecorder"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Recorder"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="testBackCarPreview"
+                android:padding="5dp"
+                android:text="测试倒车预览"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="setGaodeminiMap"
+                android:padding="5dp"
+                android:text="切换为高德导航APP版"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="setGaodeAuto"
+                android:padding="5dp"
+                android:text="切换为高德导航车机版"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdSleep"
+                android:padding="5dp"
+                android:text="OBD休眠"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdWake"
+                android:padding="5dp"
+                android:text="唤醒OBD"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdPowerOn"
+                android:padding="5dp"
+                android:text="OBD上电"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdPowerOff"
+                android:padding="5dp"
+                android:text="OBD下电"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="queryObdVersionInfo"
+                android:padding="5dp"
+                android:text="查询服务器obd版本信息"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="sendPushMessage"
+                android:padding="5dp"
+                android:text="模拟推送升级消息"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="hardUpdateObdBin"
+                android:padding="5dp"
+                android:text="强制升级obd固件"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdReset"
+                android:text="OBD芯片复位"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdfwVersion"
+                android:text="OBD固件版本查询"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdDownload"
+                android:text="OBD固件下载"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <Spinner
+                android:id="@+id/cartypecode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdGeneral"
+                android:text="设置车型"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onQueryOBDCarModel"
+                android:text="已设置车型查询"
+                android:textColor="@color/white"/>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdRTOpen"
+                android:text="采集开启"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="obdRTClose"
+                android:text="采集关闭"
+                android:textColor="@color/white"
+                android:visibility="gone"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="fdOpen"
+                android:text="防盗开启"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="fdClose"
+                android:text="防盗关闭"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/closeWifi"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="关闭热点"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/closeVoice"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="关闭语音"
+                android:textColor="@color/white"/>
+
+
+            <Button
+                android:id="@+id/openVoice"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="openVoice"
+                android:text="打开语音"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="saveVoice"
+                android:text="保存语音识别文件"
+                android:textColor="@color/white"/>
+
+
+            <Button
+                android:id="@+id/openFactoryTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="工厂测试(研发)"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="switchDSDS"
+                android:text="NA-切换双卡"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="switchSSSS"
+                android:text="NA-切换单卡"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <!--胎压-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="对码"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="tpms6601"
+                android:text="1右前"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="tpms6602"
+                android:text="2左前"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="tpms6603"
+                android:text="3右后"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="tpms6604"
+                android:text="4左后"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="tpms11"
+                android:text="握手检测"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="tpmsSub"
+                android:text="TPMS订阅"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="tpmsUnSub"
+                android:text="TPMS取消订阅"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tpms_print"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbarSize="100dp"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_gpsNmea_open"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="GPSNMEA开始保存"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/btn_gpsNmea_close"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="GPSNMEA停止保存"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/open_UC_browser"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="浏览器"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/open_record"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="录音"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/open_dial"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="拨号"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/button_open_music"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="音乐"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/button_open_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="照相"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="onBluetoothPhonePullBook"
+                android:text="同步通讯录"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/test_storage_space"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="testStorageSpace"
+                android:text="测试磁盘管理"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_ip_save"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="保存"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/btn_ip_reset"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:text="重置"
+                android:textColor="@color/white"/>
+
+
+            <Button
+                android:id="@+id/open_webSocket"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="openWebSocket"
+                android:text="开启接收推送"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/close_webSocket"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="closeWebSocket"
+                android:text="关闭接收推送"
+                android:textColor="@color/white"/>
+
+
+            <Button
+                android:id="@+id/init_network"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="initNetwork"
+                android:text="初始化网络模块"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/release_network"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_vehicle_big_selector"
+                android:onClick="releaseNetwork"
+                android:text="释放网络模块"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="128dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="UserName:"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <EditText
+
+                    android:id="@+id/edt_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/ip_radioGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/radioBtnFormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="正式服务器"/>
+
+                    <RadioButton
+                        android:id="@+id/radioBtnTest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="测试服务器"/>
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Ip:"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <EditText
+                    android:id="@+id/ip_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Port:"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <EditText
+                    android:id="@+id/port_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="TestIp:"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <EditText
+                    android:id="@+id/test_ip_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="TestPort:"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"/>
+
+                <EditText
+
+                    android:id="@+id/edt_testPort"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

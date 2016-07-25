@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="260dp"
+        android:layout_height="320dp"
+        android:orientation="vertical">
+
+        <!--缩略图部分-->
+        <com.dudu.aios.ui.view.RoundLayout
+            android:id="@+id/roundLayout"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/video_list_item_bg">
+
+            <ImageView
+                android:id="@+id/videoThumbnailView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"/>
+
+            <ImageView
+                android:id="@+id/videoPlayView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:clickable="true"
+                android:src="@drawable/video_play_selector"/>
+
+            <ImageView
+                android:id="@+id/deleteView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"
+                android:padding="8dp"
+                android:src="@drawable/delete_selector"/>
+
+            <com.dudu.aios.ui.view.DuduUploadBarLayout
+                android:id="@+id/duduUploadBar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="bottom|right"
+                android:padding="10dp"
+                android:visibility="gone"
+                app:cancelDrawable="@drawable/cancel"
+                app:finishDrawable="@drawable/finish"
+                app:normalDrawable="@drawable/upload_selector"/>
+
+            <com.dudu.aios.ui.utils.customFontUtils.DINLightFontTextView
+                android:id="@+id/positionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:clickable="false"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="999"/>
+
+        </com.dudu.aios.ui.view.RoundLayout>
+
+        <!--名称部分-->
+        <RelativeLayout
+            android:id="@+id/lockLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/default_bg_click_selector"
+            android:clickable="true"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/lockImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:src="@drawable/video_list_item_unlock"/>
+
+            <com.dudu.aios.ui.utils.customFontUtils.DINLightFontTextView
+                android:id="@+id/videoNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/lockImageView"
+                android:clickable="false"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

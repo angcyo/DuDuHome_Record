@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.record">
+
+    <!--android:sharedUserId="android.uid.system"-->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+
+    <!--打电话广播-->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <!--监听电话状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <application
+        android:name=".base.RApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/record_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/ActivityTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".service.BootReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".service.SdCardReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+                <action android:name="android.intent.action.MEDIA_REMOVED"/>
+
+                <data android:scheme="file"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".service.PhoneBroadcastReceiver">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+
+        <!--<service-->
+        <!--android:name=".service.BackgroundRecordService"-->
+        <!--android:enabled="true"-->
+        <!--android:exported="true"></service>-->
+        <service
+            android:name=".service.RecordService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.record"/>
+                <data android:scheme="record"/>
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

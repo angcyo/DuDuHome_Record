@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ViewSwitcher
+        android:id="@+id/viewSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--视频浏览层-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/video_list"
+                android:layout_width="917dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="35dp"
+                android:layout_toRightOf="@+id/previous_page_button">
+
+                <!--列表-->
+                <com.dudu.aios.ui.view.RRecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <!--空布局-->
+                <LinearLayout
+                    android:id="@+id/video_empty_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="94dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/video_empty_icon"/>
+
+                    <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                        android:id="@+id/emptyTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/video_empty"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+            </FrameLayout>
+
+
+            <!--下一页-->
+            <ImageButton
+                android:id="@+id/next_page_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="34dp"
+                android:layout_marginTop="87dp"
+                android:layout_toRightOf="@+id/video_list"
+                android:background="@drawable/next_page_video_selector"/>
+
+            <!--上一页-->
+            <ImageButton
+                android:id="@+id/previous_page_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="155dp"
+                android:layout_marginTop="87dp"
+                android:background="@drawable/previous_page_video_selector"/>
+
+            <!--返回按钮-->
+            <ImageButton
+                android:id="@+id/button_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/button_back_selector"
+                android:onClick="onButtonBack"/>
+
+            <!--前后置切换按钮-->
+            <LinearLayout
+                android:id="@+id/video_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="40dp"
+                android:descendantFocusability="blocksDescendants"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.dudu.aios.ui.view.DuduChooseButton
+                    android:id="@+id/faceButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:buttonChooseImage="@drawable/prepositive_video_checked"
+                    app:buttonImage="@drawable/postposition_video_unchecked"
+                    app:dinlFontText="@string/prepositive_video_english"
+                    app:fzlFontText="@string/prepositive_video_chinese"
+                    app:isChoose="true"/>
+
+                <com.dudu.aios.ui.view.DuduChooseButton
+                    android:id="@+id/backButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:buttonChooseImage="@drawable/prepositive_video_checked"
+                    app:buttonImage="@drawable/postposition_video_unchecked"
+                    app:dinlFontText="@string/postposition_video_english"
+                    app:fzlFontText="@string/postposition_video_chinese"/>
+            </LinearLayout>
+
+            <!--剩余空间指示器-->
+            <com.dudu.aios.ui.view.DuduProgressBar
+                android:id="@+id/sdcardProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:visibility="gone"
+                app:round="6dp"/>
+
+        </RelativeLayout>
+
+        <!--视频播放层-->
+        <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+        <!--<VideoView-->
+        <!--android:id="@+id/videoView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_centerInParent="true" />-->
+
+        <!--<ImageButton-->
+        <!--android:id="@+id/button_back_video"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:background="@drawable/button_back_selector" />-->
+
+        <!--</RelativeLayout>-->
+
+        <!--视频播放层-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.dudu.android.launcher.ui.view.VideoView
+                    android:id="@+id/video_view"
+                    android:layout_width="1920px"
+                    android:layout_height="1080px"
+                    android:layout_marginTop="-300px"
+                    />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/control_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/video_action_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_last"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:background="@drawable/button_last_video_selector"/>
+
+                <ImageButton
+                    android:id="@+id/button_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="27dp"
+                    android:background="@drawable/button_play_selector"/>
+
+                <ImageButton
+                    android:id="@+id/button_next"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="27dp"
+                    android:background="@drawable/button_next_video_selector"/>
+
+                <TextView
+                    android:id="@+id/tv_video_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="29dp"
+                    android:text="3:27"
+                    android:textSize="15sp"/>
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    style="@style/Widget.SeekBar.Normal2"
+                    android:layout_width="840dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_now_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="1:30"
+                    android:textSize="15sp"/>
+
+                <com.dudu.aios.ui.view.DuduUploadBarLayout
+                    android:id="@+id/uploadBarLayout"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="22dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/button_back_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/button_back_selector"/>
+        </RelativeLayout>
+    </ViewSwitcher>
+
+</RelativeLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="nomalColor" format="color"/>
+    <attr name="pressColor" format="color"/>
+    <attr name="spacing" format="integer"/>
+    <attr name="counts" format="integer"/>
+    <attr name="circleDrawable" format="reference"/>
+    <attr name="firstWifiColor" format="color"/>
+    <attr name="secondWifiColor" format="color"/>
+    <attr name="defaultWifiColor" format="color"/>
+    <attr name="firstWifiWidth" format="integer"/>
+    <attr name="secondWifiWidth" format="integer"/>
+    <attr name="defaultWifiWidth" format="integer"/>
+
+    <declare-styleable name="SemanticDialog">
+        <attr name="nomalColor"/>
+        <attr name="pressColor"/>
+        <attr name="counts"/>
+        <attr name="spacing"/>
+        <attr name="circleDrawable"/>
+    </declare-styleable>
+
+    <declare-styleable name="WifiProgress">
+        <attr name="firstWifiColor"/>
+        <attr name="secondWifiColor"/>
+        <attr name="firstWifiWidth"/>
+        <attr name="secondWifiWidth"/>
+        <attr name="defaultWifiWidth"/>
+        <attr name="defaultWifiColor"/>
+    </declare-styleable>
+
+    <declare-styleable name="TasksCompletedView">
+        <attr name="radius" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="ringColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="FlowCompletedView">
+        <attr name="mRadius" format="dimension"/>
+        <attr name="mStrokeWidth" format="dimension"/>
+        <attr name="mCircleColor" format="color"/>
+        <attr name="mRingColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="SwitchButton">
+        <attr name="switchBackground" format="reference"/>
+        <attr name="onThumbDrawble" format="dimension"/>
+        <attr name="offThumbDrawble" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="VehicleLine">
+        <attr name="VehicleLineColor" format="color"/>
+    </declare-styleable>
+
+    <attr name="color_no_finger_inner_circle" format="color"/>
+    <attr name="color_no_finger_outer_circle" format="color"/>
+    <attr name="color_finger_on" format="color"/>
+    <attr name="color_finger_up" format="color"/>
+    <attr name="count" format="integer"/>
+    <attr name="tryTimes" format="integer"/>
+
+    <declare-styleable name="GestureLockViewGroup">
+        <attr name="color_no_finger_inner_circle"/>
+        <attr name="color_no_finger_outer_circle"/>
+        <attr name="color_finger_on"/>
+        <attr name="color_finger_up"/>
+        <attr name="count"/>
+        <attr name="tryTimes"/>
+    </declare-styleable>
+
+    <attr name="borderRadius" format="dimension"/>
+    <attr name="type">
+        <enum name="circle" value="0"/>
+        <enum name="round" value="1"/>
+    </attr>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius"/>
+        <attr name="type"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="DuduProgressBar">
+        <attr name="progress" format="float"/>
+        <attr name="background_color" format="color"/>
+        <attr name="progress_color" format="color"/>
+        <attr name="round" format="dimension"/>
+    </declare-styleable>
+</resources>

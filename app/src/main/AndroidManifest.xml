@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.dudu.android.launcher">
+
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NEWWORK_STATE"/>
+    <uses-permission android:name="dudu.permission.SET_PROP"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false"/>
+    //以下三项location 从yuntongxun拷过来
+    <uses-feature
+        android:name="android.hardware.location"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.location.network"
+        android:required="false"/>
+
+    <uses-permission android:name="android.permission.RECORD_VIDEO"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    // 以下4项是VOIP 的SDK 权限申明, 第三方 APP 接入时，请将 com.yuntongxun.ecdemo 替换为自己的包名com.dudu.android.launcher
+    // 和下面的 uses-permission 一起加入到你的 AndroidManifest 文件中。
+    <permission
+        android:name="com.dudu.android.launcher.permission.RECEIVE_MSG"
+        android:protectionLevel="signature"/>
+    <permission
+        android:name="com.dudu.android.launcher.permission.INCOMING_CALL"
+        android:protectionLevel="signature"/>
+    // yuntongxun 接收 SDK 消息广播权限， 第三方 APP 接入时，请将 com.yuntongxun.ecdemo
+    替换为自己的包名com.dudu.android.launcher
+    <uses-permission android:name="com.dudu.android.launcher.permission.RECEIVE_MSG"/>
+    // yuntongxun 如果没有VOIP功能可以忽略
+    <uses-permission android:name="com.dudu.android.launcher.permission.INCOMING_CALL"/>
+    // 以上为v5.1.9r 版本增加
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true"/>
+    <uses-feature android:name="android.hardware.microphone"/>
+
+    <application
+        android:name=".LauncherApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true">
+
+        <!--
+
+            个人key  476a2032389d1d702025e4183c74a51d
+            企业key 339abc471043b5593a18e33a6ec448a6
+        -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="339abc471043b5593a18e33a6ec448a6"/>
+
+        <activity
+            android:name=".ui.activity.LocationMapActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppBaseTheme"/>
+
+        <!-- <activity -->
+        <!-- android:name=".ui.activity.video.VideoActivity" -->
+        <!-- android:launchMode="singleTop" -->
+        <!-- android:screenOrientation="landscape" /> -->
+        <activity
+            android:name=".ui.activity.video.VideoListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppBaseTheme"/>
+        <activity
+            android:name=".ui.activity.video.VideoPlayActivity"
+            android:noHistory="true"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".ui.activity.WifiActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppBaseTheme"/>
+        <activity
+            android:name=".ui.activity.OBDCheckingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".ui.activity.NearbyRepairActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppBaseTheme"/>
+        <activity android:name=".ui.activity.GsensorChartActivity"/>
+        <activity
+            android:name=".ui.activity.DebugActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppBaseTheme"/>
+        <activity
+            android:name="com.dudu.aios.ui.activity.OtherApkActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="landscape"
+            android:theme="@style/AiosBaseTheme"/>
+        <activity
+            android:name=".ui.activity.bluetooth.BtInCallActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:theme="@style/AiosBaseTheme"/>
+        <activity
+            android:name="com.dudu.aios.ui.activity.MainRecordActivity"
+            android:configChanges="screenSize|orientation|keyboardHidden|layoutDirection|screenLayout"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AiosBaseTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".robbery.RobberyModeActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AiosBaseTheme"/>
+        <activity
+            android:name="com.dudu.aios.ui.map.GaodeMapActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AiosBaseTheme"/>
+        <activity
+            android:name="com.dudu.aios.ui.map.AddressSearchActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape"
+            android:theme="@style/AiosBaseTheme"/>
+        <activity android:name=".ui.activity.MonitorActivity">
+        </activity>
+
+        <!-- 崩溃界面 -->
+        <activity android:name="com.dudu.aios.ui.base.RCrashActivity">
+            <intent-filter>
+                <action android:name="com.dudu.crash"/>
+            </intent-filter>
+        </activity>
+
+        <service android:name=".service.BluetoothService"/>
+        <service android:name=".service.FloatBackButtonService"/>
+        <service android:name="com.amap.api.location.APSService"/>
+
+        <receiver android:name=".broadcast.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.SimCardReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SIM_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".broadcast.WeatherAlarmReceiver"
+            android:enabled="true"
+            android:exported="true"/>
+        <receiver
+            android:name=".utils.AdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/lock"/>
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.BtCallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.outcall"/>
+                <action android:name="android.intent.action.incall"/>
+                <action android:name="android.intent.action.connect"/>
+                <action android:name="android.intent.action.end"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="org.codeaurora.handsfreeclient.profile.action.AG_CALL_CHANGED"/>
+                <action android:name="org.codeaurora.handsfreeclient.profile.action.AUDIO_STATE_CHANGED"/>
+                <action android:name="org.codeaurora.handsfreeclient.profile.action.RESULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.UVCReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.UVC"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.ACCReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACC_BL"/>
+                <action android:name="android.intent.action.ACC_ON"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.dudu.map.GaodeAppBroadcast">
+            <intent-filter>
+                <action android:name="com.autonavi.minimap.carmode.send"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.dudu.voice.BtContactsBroadcast">
+            <intent-filter>
+                <action android:name="wld_sync_contatcs_end"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".broadcast.NetWorkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- com.yuntongxun.ecsdk VOIP begin -->
+        <!-- *****************************ECSDK核心服务类 （必须配置）Start******************************************** -->
+        // SDK核心服务配置
+        <service
+            android:name="com.yuntongxun.ecsdk.ECClientService"
+            android:enabled="true"
+            android:process=":push"/>
+        // 以下两项为SDK事件提醒广播
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$AlarmReceiver"
+            android:process=":push"/>
+        // v5.1.9r增加配置选项
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.Alarm"
+            android:exported="false"
+            android:process=":push"/>
+        // SDK网络改变广播
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$ConnectionReceiver"
+            android:process=":push">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        // SDK广播通知配置（开机广播）
+        // 可选广播、如果应用想做开机重启，可以实现该广播通知即可
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$BootReceiver"
+            android:process=":push">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        // 配置SDK消息通知广播 ,SDK通知会分三种提醒方式
+        // 1、直接通过设置的回调接口（OnChatReceiveListener）Push给应用
+        // 2、如果应用没有设置回调接口则采用（BroadcastReceiver）广播通知（v5.1.8版本）
+        // 此时如果应用处于未运行状态则会直接唤醒应用处理
+        // 3、如果应用未处于运行状态并且不想被唤醒应用运行则采用状态栏通知处理（SDK直接提醒，不会通知应用）,比如调用
+        // ECDevice#logout(ECDevice.NotifyMode, ECDevice.OnLogoutListener)退出接口传入后台接收消息才会有提醒
+
+        // 注意：以上在a和b的场景下，SDK都会将消息直接给应用处理，只有在c的情况SDK才会直接处理消息提醒，
+        // 所以应用需要处理a和b两种情况
+        // 声明自定义通知的广播接收器，第三方 APP 集成时，action 中的 com.yuntongxun.ecdemo 请替换为自己的包名
+        <!-- 需要权限声明 -->
+        // 如果没有VOIP功能可以忽略
+        <!-- 需要权限声明 -->
+        <receiver
+            android:name="com.dudu.voip.service.YuntxNotifyReceiver"
+            android:exported="false">
+            <intent-filter>
+                // 接收push消息
+                // action匹配规则{packageName + ".action" + "功能"}
+                <action android:name="com.dudu.android.launcher.action.VOIP_CALL"/>
+                <action android:name="com.dudu.android.launcher.action.MESSAGE"/>
+                <action android:name="com.dudu.android.launcher.action.NOTIFICATION_CLICK"/>
+                <action android:name="com.dudu.android.launcher.action.PERSON_VERSION"/>
+            </intent-filter>
+        </receiver>
+        <!-- VOIP end -->
+        // *****************************ECSDK核心服务类 End*******************************************
+        // 应用处理程序逻辑服务
+        <service android:name="com.dudu.voip.service.YuntxNotifyReceiver$NotifyService"/>
+
+        <activity
+            android:name=".ui.activity.StreamActivity"
+            android:launchMode="singleTop">
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'realm-android'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'angcyo'
+            keyPassword 'angcyo'
+            storeFile file('E:/angcyo/angcyo_key.jks')
+            storePassword 'angcyo'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    defaultConfig {
+        applicationId "com.record"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 74
+        versionName "V4.1.2.4"
+
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    getApplicationVariants().all { variant ->
+        variant.outputs.each { output ->
+            output.outputFile = new File(output.outputFile.parent,
+                    "Record-JW-${variant.buildType.name}-${variant.versionName}.apk")
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.android.support:multidex:1.0.1'
+    compile project(':drivevideo')
+    //    compile 'io.realm:realm-android:1.0.0'
+    compile 'com.orhanobut:hawk:1.18'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.nineoldandroids:library:2.4.0'
+
+    //内存泄漏检测库leakcanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.4-beta2'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.4-beta2'
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="com.dudu.aios.ui.map.observable.AddressResultObservable" />
+
+        <variable
+            name="resultPage"
+            type="AddressResultObservable" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/password_set_bg"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="60dp">
+
+            <LinearLayout
+                android:id="@+id/voice_prompt_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="@{resultPage.isManual ? View.GONE : View.VISIBLE}">
+
+                <LinearLayout
+                    android:id="@+id/button_voice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/menu_voice_ring"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:src="@drawable/menu_voice_circle" />
+                </LinearLayout>
+
+
+                <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                    android:id="@+id/text_voice_address_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/address_search_prompt_circle"
+                    android:gravity="center"
+                    android:text="@{resultPage.resultCount}"
+                    android:textColor="@color/blue"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/manual_prompt_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+                android:visibility="@{resultPage.isManual ? View.VISIBLE : View.GONE}">
+
+                <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                    android:id="@+id/text_manual_address_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/address_search_prompt_circle"
+                    android:gravity="center"
+                    android:text="@{resultPage.resultCount}"
+                    android:textColor="@color/blue"
+                    android:textSize="15sp" />
+
+
+                <com.dudu.aios.ui.utils.customFontUtils.FZLFontTextView
+                    android:id="@+id/cancel_navi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/address_search_prompt_red_circle"
+                    android:gravity="center"
+                    android:text="@string/cancelNavi"
+                    android:textColor="@color/red_mistake"
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/address_listView"
+            android:layout_width="wrap_content"
+            android:layout_height="248dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:divider="@null"
+            android:listSelector="#00000000"
+            android:scrollbars="none"
+            android:visibility="@{resultPage.showAddressList ? View.VISIBLE:View.GONE}" />
+
+        <GridView
+            android:id="@+id/strategyChooseList"
+            android:layout_width="900dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:listSelector="#00000000"
+            android:numColumns="3"
+            android:verticalSpacing="10dp"
+
+            android:visibility="@{resultPage.showStrategy ? View.VISIBLE : View.GONE}" />
+
+
+    </LinearLayout>
+</layout>

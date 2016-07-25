@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@drawable/v_normal_bg_dark"
+             android:minHeight="400dp"
+             android:minWidth="400dp">
+
+    <!--<com.record.view.JazzyViewPager-->
+    <!--android:id="@+id/jazzyViewPager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"/>-->
+
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/viewPager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"/>-->
+
+    <com.record.view.PinchImageViewPager
+        android:id="@+id/pinchViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--关闭按钮-->
+    <ImageView
+        android:id="@+id/closeView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/v_close_selector"/>
+
+</FrameLayout>

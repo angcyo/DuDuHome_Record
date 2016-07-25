@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.dudu.aios.ui.base.TitleBarObservable"/>
+
+        <import type="com.dudu.aios.ui.base.CommonObservable"/>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="title"
+            type="TitleBarObservable"/>
+
+        <variable
+            name="common"
+            type="CommonObservable"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/base_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/preview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--<org.wysaid.view.CameraRecordGLSurfaceView
+                android:id="@+id/myGLSurfaceView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>-->
+
+            <!--<com.dudu.drivevideo.video.CameraPreviewNew-->
+            <!--android:id="@+id/frontCameraPreview"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:scaleType="center"-->
+            <!--android:visibility="gone"/>-->
+            <!--<com.camera.CameraTexturePreview
+                android:id="@+id/cameraTexturePreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>-->
+            <!--<com.blur.BlurGLSurfaceView
+                android:id="@+id/blurSurfaceView"
+                android:layout_width="match_parent"
+
+                android:layout_marginTop="-300dp"
+                android:layout_height="match_parent"/>
+
+                android:layout_height="match_parent"/>-->
+
+
+            <!--<TextureView-->
+            <!--android:id="@+id/textureView"-->
+            <!--android:layout_width="1920px"-->
+            <!--android:layout_height="1080px"-->
+            <!--/>-->
+
+            <com.dudu.drivevideo.frontcamera.preview.BlurGLSurfaceView
+                android:id="@+id/front_camera_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+
+        <com.dudu.android.launcher.ui.view.VideoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:visibility="@{common.hasBackground ? View.VISIBLE : View.VISIBLE}"/>
+
+            <RelativeLayout
+                android:id="@+id/common_title_layout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:visibility="@{common.hasTitle ? View.VISIBLE : View.GONE}">
+
+                <include
+                    layout="@layout/activity_custom_title_aio"
+                    bind:title="@{title}"/>
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/main_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/common_title_layout"/>
+
+        </RelativeLayout>
+
+        <!-- <RelativeLayout
+             android:id="@+id/common_title_layout"
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:visibility="@{common.hasTitle ? View.VISIBLE : View.GONE}"
+             >
+
+             <include
+                 bind:title="@{title}"
+                 layout="@layout/activity_custom_title_aio" />
+         </RelativeLayout>
+ -->
+
+    </RelativeLayout>
+
+</layout>

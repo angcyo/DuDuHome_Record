@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Launcher</string>
+    <string name="versin_info">版本信息</string>
+    <string name="pay_info">请使用微信或者支付宝扫一扫支付充值金额</string>
+    <string name="ok">确认</string>
+    <string name="cancel">取消</string>
+    <string name="temperature_degree">°C</string>
+    <string name="weather_turn">转</string>
+    <string name="error_no_didi">后续加入接单软件，敬请期待!</string>
+    <string name="error_no_uber">后续加入接单软件，敬请期待!</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="error_network">搜索失败,请检查网络连接！</string>
+    <string name="error_key">key验证无效！</string>
+    <string name="preference_default_tts_role">xiaoyan</string>
+    <string name="preference_key_tts_speed">tts_speed</string>
+    <string name="preference_title_tts_speed">语速</string>
+    <string name="preference_default_tts_speed">50</string>
+    <string name="preference_dialog_title_tts_speed">选择语速</string>
+    <string name="preference_key_tts_volume">tts_volume</string>
+    <string name="preference_title_tts_volume">音量</string>
+    <string name="preference_default_tts_volume">50</string>
+    <string name="preference_dialog_title_tts_volume">选择音量</string>
+    <string name="preference_key_tts_pitch">tts_pitch</string>
+    <string name="preference_title_tts_pitch">语调</string>
+    <string name="preference_default_tts_pitch">50</string>
+    <string name="start_navi_navi">实时导航</string>
+    <string name="theme_blue">经典蓝</string>
+    <string name="theme_pink">可爱粉</string>
+    <string name="theme_white">简约白</string>
+    <string name="gps">GPS</string>
+    <string name="no_4g_signal">无网络信号</string>
+
+    <string name="routeshow">线路展示</string>
+    <string name="routeinfo_1">全程 </string>
+    <string name="routeinfo_2">公里/</string>
+    <string name="routeinfo_3">"分钟    收费"</string>
+    <string name="routeinfo_4">元</string>
+    <string name="routeinfo_default">--</string>
+    <string name="bluetooth_device_my">我的设备</string>
+    <string name="bluetooth_device_pair">已配对的设备</string>
+    <string name="bluetooth_device_enable">可用设备</string>
+    <string name="action_lock">锁定</string>
+    <string name="action_delete">删除</string>
+    <string name="action_upload">上传</string>
+    <string name="action_details">详情</string>
+    <string name="action_title">行车记录</string>
+    <string name="action_choice">选择</string>
+    <string name="action_choice_first">选择了%1%d项</string>
+    <string name="alert_notification">提示</string>
+    <string name="get_weather_info_failed">获取天气预报失败!</string>
+    <string name="unkown_weather_info">未知天气</string>
+    <string name="fetching_weather">正在获取天气信息...</string>
+    <string name="no_network_connection_toast">没有网络</string>
+    <string name="used_flow">已用流量：&#160;&#160;%.2f M</string>
+    <string name="remaining_flow">剩余流量：&#160;&#160;%.2f M</string>
+    <string name="car_self_checking">车辆自检</string>
+    <string name="nearby_tire_repair_brand">附近评价最高的轮胎保养品牌</string>
+    <string name="network_no_signal">无网络信号</string>
+    <string name="without_sim_card">移动4G流量卡未插入</string>
+    <string name="sim_card_replaced_error">移动4G卡已替换\n此设备将暂停使用</string>
+
+    <!-- 行车记录字符串 -->
+    <string name="video_sdcard_removed_alert">没有插入SD卡，不能存储行车录像!</string>
+    <string name="video_sdcard_inserted_alert">已插入SD卡</string>
+    <string name="video_cache_space_full_alert">存储空间已满，请手动释放存储空间!</string>
+    <string name="video_delete_alert">确定删除此视频？</string>
+    <string name="video_lock_alert">本视频已锁定.</string>
+    <string name="video_end_alert">已经是最后一个视频！</string>
+    <string name="video_start_alert">已经是第一个视频！</string>
+    <string name="video_loading_more">正在加载...</string>
+    <string name="video_sdcard_broken">存储卡损坏，请更换SD卡！</string>
+
+
+    <!-- OBD字符串 -->
+    <string name="obd_checking_obd">正在检测OBD连接...</string>
+    <string name="obd_checking_unconnected">未检测到OBD\n设备未能正常使用</string>
+    <string name="OBD_not_connect">OBD模块未正确连接</string>
+    <string name="OBD_use_connect">请连接OBD后使用</string>
+
+    <string name="user_is_not_active">当前账号尚未激活</string>
+
+    <string name="use_flow_normal">流量使用正常</string>
+    <string name="use_flow_low_alarm">流量低级预警</string>
+    <string name="use_flow_middle_alarm">流量中级预警</string>
+    <string name="use_flow_high_alarm">流量高级预警</string>
+    <string name="use_close_flow">关闭流量</string>
+
+    <string-array name="action_menu_list_select">
+        <item>选择</item>
+        <item>全选</item>
+        <item>取消选择</item>
+    </string-array>
+
+    <string name="vehicle_inspection_chinese">行车自检</string>
+    <string name="vehicle_inspection_english">VEHICLE INSPECTION</string>
+    <string name="driving_record_chinese">行车记录</string>
+    <string name="driving_record_english">DRIVING RECORD</string>
+    <string name="navigation_chinese">导航定位</string>
+    <string name="navigation_english">NAVIGATION</string>
+    <string name="bluetooth_phone__chinese">蓝牙电话</string>
+    <string name="bluetooth_phone_english">BLUETOOTH PHONE</string>
+    <string name="flow_chinese">移动热点</string>
+    <string name="flow_english">4G-LTE WIFI</string>
+    <string name="prevent_rob_chinese">防盗防劫</string>
+    <string name="prevent_rob_english">SAFETY CENTER</string>
+    <string name="vip_ch">VIP服务</string>
+    <string name="vip_en">VIP SERVICE</string>
+
+
+    <string name="vehicle_guard_mode_ch">防盗模式</string>
+    <string name="vehicle_guard_ch">车辆防盗</string>
+    <string name="vehicle_guard_en">ANTI-THEFT MODE</string>
+
+    <string name="vehicle_robbery_ch">车辆防劫</string>
+    <string name="vehicle_robbery_en">ANTI-ROBBERY MODE</string>
+
+    <string name="vehicle_robbery_mode_ch">防劫模式</string>
+    <string name="vehicle_flash_rate_times_cn">闪大灯次数限制10次</string>
+    <string name="vehicle_emergency_cutoff_cn">紧急停车后下车</string>
+    <string name="vehicle_step_on_gas_cn">连续踩油门限制3次</string>
+    <string name="vehicle_robbery_mode_en">ROBBERY MODE</string>
+    <string name="vehicle_flash_rate_times_en">FLASH RATE 10 TIMES</string>
+    <string name="vehicle_emergency_cutoff_en">EMERGENCY CUTOFF</string>
+    <string name="vehicle_step_on_gas_en">STEP ON THE GAS</string>
+    <string name="password_unlock_ch">密码解锁</string>
+    <string name="password_unlock_en">PASSWORD UNLOCK</string>
+    <string name="gesture_unlock_ch">手势解锁</string>
+    <string name="gesture_unlock_en">GESTURE UNLOCK</string>
+    <string name="change_password_ch">解锁密码设置</string>
+    <string name="change_password_en">CHANGE PASSWORD</string>
+    <string name="verification_code">验证码</string>
+    <string name="send_ch">获取验证码</string>
+    <string name="new_password">新密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="unlock_passwordSet_ch">数字解锁</string>
+    <string name="init_password">初始化密码</string>
+    <string name="draw_success">绘制成功</string>
+    <string name="draw_fault">绘制错误，请重试...</string>
+    <string name="robbery_switch_open_prompt">"在%1$s秒内踩油门%2$s次，每次转速达到%3$s转，防劫模式触发。"</string>
+    I am %1$d years old
+    <string name="robbery_switch_close_prompt">请在手机设置防劫模式的触发条件，再打开此防劫按钮</string>
+    <string name="driving_license_upload_prompt">很抱歉，您未上传驾驶证和行驶证，无法使用此功能，请在AIOwner APP上传证件</string>
+    <string name="driving_license_auditing_prompt">很抱歉，您上传驾驶证和行驶证正在审核中，暂时无法使用此功能，请等待证件审核通过</string>
+    <string name="driving_license_reject_prompt">很抱歉，您上传驾驶证和行驶证在审核后被驳回，无法使用此功能，请在AIOwner APP重新上传证件</string>
+    <string name="insurance_license_upload_prompt">很抱歉，您未上传保险证，无法使用此功能，请在AIOwner APP上传证件</string>
+    <string name="insurance_license_auditing_prompt">很抱歉，您上传保险证正在审核中，暂时无法使用此功能，请等待证件审核通过</string>
+    <string name="insurance_license_reject_prompt">很抱歉，您上传保险证在审核后被驳回，无法使用此功能，请在AIOwner APP重新上传证件</string>
+
+    <string name="vehicle_locked">LOCKED</string>
+    <string name="vehicle_unlock">UNLOCKED</string>
+    <string name="prepositive_video_chinese">前置录像</string>
+    <string name="prepositive_video_english">FRONT CAMERA</string>
+    <string name="postposition_video_chinese">后置录像</string>
+    <string name="postposition_video_english">PEAR CAMERA</string>
+    <string name="uploading_video_to_app">正在上传至APP</string>
+    <string name="uploading_successful">上传成功</string>
+    <string name="video_empty">暂无视频...</string>
+    <string name="video_empty_ntf">请确认存储卡是否已装置好...</string>
+    <string name="photo_empty_chinese">暂无图片</string>
+    <string name="photo_empty_english">NO CONTENT</string>
+
+    <string name="photo_empty_chinese_ntf">请确认存储卡是否已装置好</string>
+    <string name="photo_empty_english_ntf">NO CARD</string>
+
+    <string name="no_choose_photo">你还没有选择图片</string>
+
+    <string name="flow_residual_chinese">流量统计</string>
+    <string name="flow_residual_english">RESIDUAL FLOW</string>
+    <string name="close_flow">点击关闭热点</string>
+    <string name="open_flow">点击打开热点</string>
+    <string name="opening_flow">正在打开热点</string>
+    <string name="closing_flow">正在关闭热点</string>
+    <string name="passwordSet_chinese">密码设置</string>
+    <string name="reset_password">重置密码</string>
+    <string name="passwordSet_english">PASSWORD</string>
+    <string name="weChat_recharge_chinese">微信充值</string>
+    <string name="aliPay_recharge_chinese">支付宝充值</string>
+    <string name="weChat_recharge_english">WECHAT DEPOSTIT</string>
+    <string name="aliPay_recharge_english">ALIPAY DEPOSTIT</string>
+    <string name="flow_password_set_chinese">热点密码设置</string>
+    <string name="flow_password_set_english">CHANGE PASSWORD</string>
+    <string name="wifi">热点</string>
+    <string name="password">密码</string>
+    <string name="set_wifi_password_prompt">密码至少包含8个字符</string>
+    <string name="wifi_ap_exceed_fifteen_prompt">热点的名字不能超过15个字符</string>
+    <string name="set_wifi_name_password_empty">用户名或密码不能为空</string>
+    <string name="set_wifi_name_password_success">设置密码和用户名成功</string>
+    <string name="open_wifi_ap_success">打开热点成功</string>
+    <string name="set_wifi_name_password_error">设置密码和用户名失败</string>
+    <string name="open_wifi_ap_fail">打开热点失败</string>
+    <string name="notice_searchKeyword">抱歉，您输入的关键字有误，请重新输入</string>
+
+    <string name="searching">正在搜索...</string>
+
+    <string name="check_after_stop">请在停止行驶后进行车检</string>
+    <string name="test_speed_after_stop">请在停止行驶后进行加速测试</string>
+    <string name="obd_update_success_reboot">OBD升级成功，系统将进行重启</string>
+    <string name="check_cartype_fail">检查车型失败，请重试</string>
+    <string name="check_faults_fail">车辆自检启动失败，请重试</string>
+    <string name="check_faults_fail_timeout">车辆自检启动超时，请重试</string>
+    <string name="clear_faults_fail">部分故障码清除失败，请尝试熄火然后点火操作后再清除，或者前往维修</string>
+    <string name="check_BMW_faults_after_flamout_fired">请在一分钟之内熄火后再点火</string>
+    <string name="fire_before_carcheck">请在点火后开始车辆自检</string>
+    <string name="click_to_reflash">点击刷新</string>
+    <string name="maintain_remind">保养提醒</string>
+    <string name="fuel_oil_ratio">燃油效率</string>
+    <string name="battery_voltage">电瓶电压</string>
+    <string name="engine_chinese">发动机</string>
+    <string name="engine_english">ENGINE</string>
+    <string name="gearbox_chinese">变速箱</string>
+    <string name="gearbox_english">GEARBOX</string>
+    <string name="abs_chinese">防抱死</string>
+    <string name="abs_english">ABS</string>
+    <string name="wsb_chinese">胎压</string>
+    <string name="wsb_english">WSB</string>
+    <string name="srs_chinese">安全气囊</string>
+    <string name="srs_english">SRS</string>
+    <string name="vehicle_suggest_check">建议检查</string>
+    <string name="vehicle_suggest_maintain">建议维修</string>
+    <string name="vehicle_device_health">设备健康</string>
+    <string name="openNavi_notice">您好，请说出您想去的地方或者关键字</string>
+    <string name="search_fail">抱歉,搜索失败，请稍后重试</string>
+    <string name="choose_strategy">选择以下方式</string>
+    <string name="search_result">找到以下结果</string>
+    <string name="routePlanning">路径规划中...</string>
+    <string name="plaseChoose_place">为您找到%1$s个%2$s相关地址，请选择第几个</string>
+    <string name="plaseChoose_place_one">为您找到一个%1$s相关地址</string>
+
+    <string name="plaseChoose_strategy">请选择路线优先策略</string>
+    <string name="choose_error">选择错误，请重新选择</string>
+    <string name="check_details">查看详情</string>
+    <string name="device_fine">设备良好</string>
+    <string name="warning_en">WARNING</string>
+    <string name="nearby_tire_shop">附近评价最高的轮胎保养品牌</string>
+    <string name="to_navigate">导航前往</string>
+    <string name="distance_ch">距离</string>
+    <string name="fault_code">故障码</string>
+    <string name="description">描述</string>
+    <string name="status">状态</string>
+    <string name="status_or_operator">状态/操作</string>
+    <string name="fault_code_cleared">故障码已清除</string>
+    <string name="fault_code_clear_fail">清除故障码失败</string>
+    <string name="fault_code_clear_fail_not_support">该车型暂不支持全部自检功能</string>
+    <string name="fault_code_clear_fail_wait_checking">您的行驶证正在审核中，请等待审核</string>
+    <string name="fault_code_clear_fail_upload_license">尚未上传行驶证，请上传行驶证</string>
+    <string name="fault_code_clear_fail_reject">行驶证审核被驳回，请重新上传行驶证</string>
+    <string name="clearing_fault_code">正在清除故障码...</string>
+    <string name="fault_code_unclear_prompt">故障码无法清除，建议前往检修！</string>
+    <string name="click_check_fault_code_prompt">点击查看无法清除的故障码</string>
+    <string name="nearby_grade_high_4S_shop">附近评分最高的汽修店</string>
+    <string name="IMEI_code">IMEI码:</string>
+    <string name="device_with_app_bind_prompt">此功能需要您下载与绑定AIOWner APP，请您扫描下方的二维码进行下载与绑定</string>
+    <string name="app_download">APP下载</string>
+    <string name="device_bind">后视镜绑定</string>
+    <string name="AIOWer_app">AIOWner APP</string>
+
+
+    <string name="dial_keyboard">拨号键盘</string>
+    <string name="contacts">通讯录</string>
+    <string name="name">姓名</string>
+    <string name="phone">电话</string>
+    <string name="contact_delete_alert">确定删除此联系人？</string>
+    <string name="calling">通话中...</string>
+    <string name="bt_dialing">拨号中...</string>
+    <string name="voip_connecting">连接中...</string>
+    <string name="text_crash">点击查看异常日志</string>
+
+    <string name="navigation_address_count">共找到%1$d个结果</string>
+
+    <string name="navigation_end">导航结束</string>
+
+    <string name="cancelNavi">取消本次导航</string>
+
+    <string name="naviHistory">导航历史</string>
+
+    <string name="fault_clear_fail_notice">该故障码无法清除，建议您行驶到附近维修点进行维修，选择第几个前往或退出</string>
+    <string name="text_select">选择</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_delete">删除</string>
+    <string name="text_upload">上传</string>
+
+    <string name="bt_noti_connect_waiting">蓝牙电话正在等待连接</string>
+    <string name="bt_noti_connected">蓝牙电话已连接，等待同步通讯录</string>
+    <string name="bt_noti_btphone_calling">蓝牙电话正在通话中</string>
+    <string name="bt_noti_disenable">蓝牙功能未启动</string>
+    <string name="bt_device_prepare_connect">准备同步通讯录...</string>
+    <string name="bt_device_connecting">正在连接蓝牙设备...</string>
+    <string name="bt_contacts_sync_loading">通讯录同步中...</string>
+    <string name="bt_contacts_loading">通讯录加载中...</string>
+    <string name="bt_contacts_deleteing">正在删除旧通讯录...</string>
+    <string name="bt_contacts_sync_fail">同步失败，点击重试</string>
+
+    <!--VOIP-->
+    <string name="voip_get_vip_services">正在为您连接V挨P服务</string>
+    <string name="voip_eccall_failed">本次呼叫失败，请稍后重试</string>
+    <string name="voip_regist_params_error">注册参数错误，请检查</string>
+    <string name="voip_get_subaccount_error">连接服务器异常，请稍后重试</string>
+    <string name="voip_network_error">网络无效，请检查4G卡和账户剩余流量</string>
+
+    <string name="request_network_prompt">正在努力为你获取数据，请稍等...</string>
+</resources>

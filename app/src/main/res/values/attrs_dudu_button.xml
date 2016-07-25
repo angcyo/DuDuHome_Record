@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DuduChooseButton">
+        <attr name="buttonImage" format="reference" />
+        <attr name="buttonChooseImage" format="reference" />
+        <attr name="fzlFontText" format="string" />
+        <attr name="fzlFontTextSize" format="dimension" />
+        <attr name="dinlFontText" format="string" />
+        <attr name="dinlFontTextSize" format="dimension" />
+        <attr name="isChoose" format="boolean" />
+    </declare-styleable>
+
+</resources>
